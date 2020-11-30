@@ -1,0 +1,32 @@
+# Java-Study-Note
+秉着未雨绸缪，时刻为面试做准备的想法来写这个系列，顺便夯实一下我还不太扎实的java基础。通过参考[敖丙](https://github.com/AobingJava/JavaFamily)、[三歪](https://github.com/ZhongFuCheng3y/3y)和其他[面试问题集合](https://github.com/Moosphan/Android-Daily-Interview)等整理了一些主流知识点，后续会慢慢将各个知识点填坑。
+## 知识点目录
+- java基础知识
+  - [ ] java必知必会
+  - [ ] 不可变的String
+  - [ ] 什么是反射机制
+  - [ ] 单例模式
+  - [ ] 枚举
+  - [ ] 泛型
+- java集合
+  - [ ] HashMap
+  - [ ] ConcurrentHashMap
+  - [ ] ArrayList
+  - [ ] CopyOnWriteArrayList
+  - [ ] java集合的ConcurrentModificationException
+- 并发编程
+  - [ ] java内存模型
+  - [ ] 双重检查锁定
+  - [ ] java的各种锁
+  - [ ] volatile
+  - [ ] synchronized
+  - [ ] 阻塞队列
+  - [ ] Fork/Join框架
+  - [ ] 并发工具类：CountDownLatch、CyclicBarrier和Semaphore
+  - [ ] 线程池
+  - [ ] 原子操作类
+  - [ ] ThreadLocal
+- JVM核心知识点
+  - [ ] java的四种引用及其区别
+  - [ ] 垃圾回收机制
+  - [ ] 类加载机制
