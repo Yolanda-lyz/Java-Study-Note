@@ -2,7 +2,7 @@
 秉着未雨绸缪，时刻为面试做准备的想法来写这个系列，顺便夯实一下我还不太扎实的java基础。通过参考[敖丙](https://github.com/AobingJava/JavaFamily)、[三歪](https://github.com/ZhongFuCheng3y/3y)和其他[面试问题集合](https://github.com/Moosphan/Android-Daily-Interview)等整理了一些主流知识点，后续会慢慢将各个知识点填坑。
 ## 知识点目录
 - java基础知识
-  - [ ] java必知必会
+  - [ ] [java基础必知必会](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
   - [ ] 不可变的String
   - [ ] 什么是反射机制
   - [ ] 单例模式
