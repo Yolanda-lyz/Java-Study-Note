@@ -148,3 +148,137 @@ public final class Integer ...{
   - 包装类对象与基本数据类型变量进行【==】、【!=】、【>】、【+】等操作；
   - 包装类对象作为函数的返回值，而函数的返回类型声明为基本数据类型，也包含了拆箱逻辑；
   - if(Boolean)会转化为if(boolean)，Boolean为null，也会导致NE。
+
+---
+#### 3. 字符串
+
+##### 基本认知
+
+- String文档中的注释：Strings是常量，其值在实例创建后就不能被修改，字符串缓冲区支持可变字符串，因为缓冲区中的不可变字符串对象可以被共享。
+
+- String类通过final修饰，不可被继承，同时其成员变量字符数组``value[]``也是被final修饰（final修饰基本数据类型变量，则变量的值被初始化后就不能更改），字符数组初始化后不可变，故String是不可变的。
+
+  成员变量``hash``是由``value[]``计算得来，由于``value[]``不可变，则``hash``值也是唯一的。
+
+  CharSequence是一个接口类，提供了关于字符串操作的接口，如``int length();``、``char charAt(int index)``等；
+
+  ```java
+  public final class String
+      implements java.io.Serializable, Comparable<String>, CharSequence {
+      /** The value is used for character storage. */
+      private final char value[];
+  
+      /** Cache the hash code for the string */
+      private int hash; // Default to 0
+      ......
+  }
+  ```
+
+- String对象初始化
+
+  ```java
+  public String() {
+      this.value = "".value;
+  }
+  
+  public String(String original) {
+      this.value = original.value;
+      this.hash = original.hash;
+  }
+  
+  public String(char value[]) {
+      this.value = Arrays.copyOf(value, value.length);
+  }
+  ```
+
+##### String对象的不可变
+
+- 不可变的原因：String对象内部的字符数组``value[]``由final修饰，一旦被初始化后，字符数组的值不能被修改。
+
+- 代码中关于String对象可变的假象：
+
+  形如``String s = "aaa"; s = "bbb";``，实际是创建了两个String对象，只是将``s``的指向从"aaa"的String对象变更为"bbb"的String对象。
+
+  String类内部的``subString()``、``trim()``等接口，也并不是在当前String对象上做修改，而是构造了一个新的String对象并返回。
+
+  ```java
+  public String substring(int beginIndex) {
+      if (beginIndex < 0) {
+          throw new StringIndexOutOfBoundsException(beginIndex);
+      }
+      int subLen = value.length - beginIndex;
+      if (subLen < 0) {
+          throw new StringIndexOutOfBoundsException(subLen);
+      }
+      return (beginIndex == 0) ? this : new String(value, beginIndex, subLen);
+  }
+  ```
+
+- String对象设计成不可变的原因
+
+  一是字符串常量池设计的需要。当创建String对象时，若字符串已经存在常量池中，则直接引用已经存在的String对象。如果允许改变，会导致各种逻辑错误，一个对象的改变会影响其他引用对象的逻辑。
+
+  二是字符串的不变性保证了其hash码的唯一性，从而可以缓存hash码，避免重复计算。
+
+  三是程序安全的要求。String作为各种java类的参数，若可变，会引起各种严重错误和安全漏洞；类加载器也需使用字符串，不可变性保证了安全性；不可变的字符串保证了线程安全。
+
+##### 字符串常量池
+
+在本地方法区存在一块特殊的内存区域，用于记录字符串常量，称为字符串常量池（jdk 8之后分离到了堆中），通过这个常量池来实现字符串的共享。常量池是在编译期被确定，并保存在已编译的.class文件中的一些数据。
+
+String对象的创建方式有两种：
+
+- 直接或间接使用双引号声明，形如``String str = "aaa"``，JVM会先检查常量池中是否存在相同的字符串，若已存在则直接返回已有的字符串实例地址，否则创建一个新的String对象并存入常量池。
+- 直接或间接以new形式创建，形如``String str = new String("aaa")``，这里实际会先在常量池中获取或创建``"aaa"``String对象，然后将其作为参数调用``public String(String original)``构造方法，在堆中创建一个新的String对象且独立于常量池。存储在堆中的String对象可以通过调用``intern()``方法手动入池。
+
+```java
+public class testString {
+    public static void main(String args[]) {
+        String a = "a" + "b" + 1;
+        String b = "ab1";
+        System.out.println(a == b);  //（1）true
+        String c = new String("ab1");
+        String d = new String("ab1");
+        System.out.println(c == b);  //（2）false
+        System.out.println(c == d);  //（3）false
+        c = c.intern();
+        System.out.println(c == b);  //（4）true
+    }
+}
+```
+
+##### Android SDK对String类的变更
+
+Android SDK的String类有所变更，其内部并没有value数组成员，而是维护了一个int变量count。字符数组交由runtime运行时库来管理，而所有需要访问到字符数组的都替换成一个用于访问运行时库的native接口。
+
+  ```java
+  public final class String implements ... {
+      // BEGIN Android-changed: The character data is managed by the runtime.
+      // private final char value[];
+      //
+      // If STRING_COMPRESSION_ENABLED, count stores the length shifted one bit to the left with the
+      // lowest bit used to indicate whether or not the bytes are compressed (see GetFlaggedCount in
+      // the native code).
+      private final int count;
+      // END Android-changed: The character data is managed by the runtime.
+      
+      /** Cache the hash code for the string */
+      private int hash; // Default to 0
+      ......
+      // BEGIN Android-changed: Replace with implementation in runtime to access chars (see above).
+      @FastNative
+      public native char charAt(int index);
+      // END Android-changed: Replace with implementation in runtime to access chars (see above).
+      ......
+      // BEGIN Android-changed: Replace with implementation in runtime to access chars (see above).
+      @FastNative
+      public native int compareTo(String anotherString);
+      // END Android-changed: Replace with implementation in runtime to access chars (see above).
+      ......
+      // BEGIN Android-changed: Replace with implementation in runtime to access chars (see above).
+      @FastNative
+      public native String concat(String str);
+      // END Android-changed: Replace with implementation in runtime to access chars (see above).
+      ......
+  }
+  ```
