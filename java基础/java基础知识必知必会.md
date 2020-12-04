@@ -285,7 +285,7 @@ public final class String ... {
 
 #### 3.5 字符串拼接
 
-##### StringBuilder、StringBuffer
+##### 3.5.1 StringBuilder、StringBuffer
 
 java的字符串类包括String、StringBuilder和StringBuffer，后两者与String的区别在于他们是``可变的字符序列``，每次变更都是针对对象本身，而不是像String一样直接创建新的对象。
 
@@ -321,13 +321,13 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
 
 value数组初始化时会给定一个初始容量值，当append的字符串长度超过数组容量时，会对数组进行扩容，反之，也会进行缩容。
 
-###### StringBuilder和StringBuffer的区别
+###### 3.5.1.1 StringBuilder和StringBuffer的区别
 
 根据文档的注释，StringBuilder的出现，是为了在单线程使用中替代StringBuffer的，StringBuilder相较于StringBuffer有执行速度优势，但是是非线程安全的。在多线程环境下必须使用StringBuffer。
 
 StringBuffer的线程安全在于其内部的方法增加了``synchronized``修饰，从接口调用上保证线程安全，也导致它的效率较低。
 
-##### '+' 拼接
+##### 3.5.2 '+' 拼接
 
 字符串拼接最常用的就是直接使用加号，如下实例：
 
