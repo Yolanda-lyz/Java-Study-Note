@@ -2,31 +2,35 @@
 秉着未雨绸缪，时刻为面试做准备的想法来写这个系列，顺便夯实一下我还不太扎实的java基础。通过参考[敖丙](https://github.com/AobingJava/JavaFamily)、[三歪](https://github.com/ZhongFuCheng3y/3y)和其他[面试问题集合](https://github.com/Moosphan/Android-Daily-Interview)等整理了一些主流知识点，后续会慢慢将各个知识点填坑。
 ## 知识点目录
 - java基础知识
-  - [ ] [java基础必知必会](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
-  - [ ] 不可变的String
-  - [ ] 什么是反射机制
-  - [ ] 单例模式
-  - [ ] 枚举
-  - [ ] 泛型
+  - :small_blue_diamond: [java基础必知必会](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
+    - :small_orange_diamond: [OOP](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#1-oop%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B)
+    - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
+      - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
+    - :small_orange_diamond: [字符串](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#3-%E5%AD%97%E7%AC%A6%E4%B8%B2)
+  - :white_circle: 不可变的String
+  - :white_circle: 什么是反射机制
+  - :white_circle: 单例模式
+  - :white_circle: 枚举
+  - :white_circle: 泛型
 - java集合
-  - [ ] HashMap
-  - [ ] ConcurrentHashMap
-  - [ ] ArrayList
-  - [ ] CopyOnWriteArrayList
-  - [ ] java集合的ConcurrentModificationException
+  - :white_circle: HashMap
+  - :white_circle: ConcurrentHashMap
+  - :white_circle: ArrayList
+  - :white_circle: CopyOnWriteArrayList
+  - :white_circle: java集合的ConcurrentModificationException
 - 并发编程
-  - [ ] java内存模型
-  - [ ] 双重检查锁定
-  - [ ] java的各种锁
-  - [ ] volatile
-  - [ ] synchronized
-  - [ ] 阻塞队列
-  - [ ] Fork/Join框架
-  - [ ] 并发工具类：CountDownLatch、CyclicBarrier和Semaphore
-  - [ ] 线程池
-  - [ ] 原子操作类
-  - [ ] ThreadLocal
+  - :white_circle: java内存模型
+  - :white_circle: 双重检查锁定
+  - :white_circle: java的各种锁
+  - :white_circle: volatile
+  - :white_circle: synchronized
+  - :white_circle: 阻塞队列
+  - :white_circle: Fork/Join框架
+  - :white_circle: 并发工具类：CountDownLatch、CyclicBarrier和Semaphore
+  - :white_circle: 线程池
+  - :white_circle: 原子操作类
+  - :white_circle: ThreadLocal
 - JVM核心知识点
-  - [ ] java的四种引用及其区别
-  - [ ] 垃圾回收机制
-  - [ ] 类加载机制
+  - :white_circle: java的四种引用及其区别
+  - :white_circle: 垃圾回收机制
+  - :white_circle: 类加载机制
