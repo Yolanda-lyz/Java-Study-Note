@@ -2,11 +2,11 @@
 秉着未雨绸缪，时刻为面试做准备的想法来写这个系列，顺便夯实一下我还不太扎实的java基础。通过参考[敖丙](https://github.com/AobingJava/JavaFamily)、[三歪](https://github.com/ZhongFuCheng3y/3y)和其他[面试问题集合](https://github.com/Moosphan/Android-Daily-Interview)等整理了一些主流知识点，后续会慢慢将各个知识点填坑。
 ## 知识点目录
 - java基础知识
-  - :small_blue_diamond: [java基础必知必会](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
-    - :small_orange_diamond: [OOP](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#1-oop%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B)
-    - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
-      - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
-    - :small_orange_diamond: [字符串](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md#3-%E5%AD%97%E7%AC%A6%E4%B8%B2)
+  - :small_orange_diamond: [OOP：继承、封装和多态](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E7%BB%A7%E6%89%BF%E3%80%81%E5%B0%81%E8%A3%85%E5%92%8C%E5%A4%9A%E6%80%81.md)
+  - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+    - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md#2-%E5%8C%85%E8%A3%85%E7%B1%BB)
+  - :small_orange_diamond: [String深入理解](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/String%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90.md)
+  - :small_orange_diamond: [关键字：修饰符、static、final](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81static%E3%80%81final.md)
   - :white_circle: 不可变的String
   - :white_circle: 什么是反射机制
   - :white_circle: 单例模式
