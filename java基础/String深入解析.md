@@ -111,7 +111,7 @@ String对象的创建方式有两种：
   }
   ```
 
-另外，如果直接以字符数组作为参数来创建String对象，则不会在常量池中查找或创建String对象，仅在堆中创建新的String对象返回。
+另外，如果直接或间接以字符数组作为参数来创建String对象，如String类的构造方法：``Sring(char value[])``、``String(byte ascii[])``、``String(StringBuilder builder)``等，则不会在常量池中查找或创建String对象，仅在堆中创建新的String对象返回。
 
 ```java
 public class testString {
