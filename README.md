@@ -5,13 +5,12 @@
   - :small_orange_diamond: [OOP：继承、封装和多态](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E7%BB%A7%E6%89%BF%E3%80%81%E5%B0%81%E8%A3%85%E5%92%8C%E5%A4%9A%E6%80%81.md)
   - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
     - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md#2-%E5%8C%85%E8%A3%85%E7%B1%BB)
-  - :small_orange_diamond: [String深入理解](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/String%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90.md)
+  - :small_orange_diamond: [深入理解String](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/String%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90.md)
   - :small_orange_diamond: [关键字：修饰符、static、final](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81static%E3%80%81final.md)
-  - :white_circle: 不可变的String
+  - :small_orange_diamond: [你知道枚举是如何实现的吗？](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/5-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%9E%9A%E4%B8%BE.md)
   - :white_circle: 什么是反射机制
   - :white_circle: 单例模式
-  - :white_circle: 枚举
-  - :white_circle: 泛型
+  - :small_orange_diamond: [泛型--深挖那些被忽略的知识点](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/6-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B3%9B%E5%9E%8B.md)
 - java集合
   - :white_circle: HashMap
   - :white_circle: ConcurrentHashMap
