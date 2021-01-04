@@ -1,8 +1,9 @@
 ### 1. HashMap内部数据结构
 jdk1.8的HashMap内部使用的数据结构是数组+链表/红黑树：
-![HashMap数据结构](https://img-blog.csdnimg.cn/20200912144948473.png?#pic_center)
+![HashMap数据结构](https://img-blog.csdnimg.cn/20200912144948473.png)
+
 TREEIFY_THRESHOLD表示链表转红黑树的阈值，当链表的长度超过该值时，就将链表转换为红黑树。
-UNTREEIFY_THRESHOLD表示红黑树转链表的阈值，该值为6而不是8，这样设计的原因是为避免hash碰撞次数在8左右徘徊时，频繁地在链表和红黑树之间转换。
+UNTREEIFY_THRESHOLD表示红黑树转链表的阈值，该值为6而不是8，这样设计的原因是``为避免hash碰撞次数在8左右徘徊时，频繁地在链表和红黑树之间转换``。
 ```java
 static final int TREEIFY_THRESHOLD = 8;
 static final int UNTREEIFY_THRESHOLD = 6;
@@ -16,10 +17,10 @@ static class Node<K,V> implements Map.Entry<K,V> {
     ......
 }
 ```
-**为什么链表转红黑树的阈值为8？**
-这个问题在源码中其实是有解释：<font color=#B22222>TreeNode占用空间是普通nodes的两倍</font>，所以我们只在bins中包含了足够多的节点时才转换成TreeNodes，当bins中节点数变少时，又会转换成普通nodes。
+#### 1.1 为什么链表转红黑树的阈值为8？
+这个问题在源码中其实是有解释：``TreeNode占用空间是普通nodes的两倍``，所以我们只在bins中包含了足够多的节点时才转换成TreeNodes，当bins中节点数变少时，又会转换成普通nodes。
 如果hashCode的分散性很好，使用到TreeNodes的概率会很小，因为元素分散均匀，几乎不会有bin中的链表长度达到阈值。理想情况下随机hashCode算法下所有bin中节点的分布频率会遵循泊松分步，一个bin中元素个数达到8的概率是0.00000006，小于百万分之一，bin中元素个数超过8的概率小于千万分之一，几乎都是不可能事件。
-所以，阈值设为8的原因可总结为：在hashCode分散均匀时，单个bin元素个数几乎不可能达到8，也就不会触发转换为空间更大的TreeNode；而hashCode分散不均匀时，出于查找时间的考虑，才将单个bin元素个数达到8的转换为红黑树。<font color=#B22222>说白了，其实就是对空间和时间的一种权衡策略</font>。
+所以，阈值设为8的原因可总结为：在hashCode分散均匀时，单个bin元素个数几乎不可能达到8，也就不会触发转换为空间更大的TreeNode；而hashCode分散不均匀时，出于查找时间的考虑，才将单个bin元素个数达到8的转换为红黑树。``说白了，其实就是对空间和时间的一种权衡策略``。
 ```java
     /*
      * Because TreeNodes are about twice the size of regular nodes, we
@@ -65,7 +66,7 @@ static final int tableSizeFor(int cap) {
     return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
 }
 ```
-#### 容量值的调整过程
+#### 1.2 容量值的调整过程
 假设我们传入的初始容量值为80（二进制为0101 0000），调用tableSizeFor方法的计算过程如下：
 | 计算过程 | 计算结果 |
 | --- | --- |
@@ -141,7 +142,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 }
 ```
 ps：在treeifyBin方法中，还会做一次判断，如果table数组的长度小于64，则会进行扩容。所以链表转换为红黑树有两个条件：一是链表长度超过阈值8，二是table数组的长度大于等于64。
-#### 3. HashMap的hash方法
+### 3. HashMap的hash方法
 HashMap中是通过```(n - 1) &  hash```确定待插入元素在table数组中存放的位置下标，hash是调用HashMap的哈希函数```hash(key)```返回的hash值。
 ```hash(key)```是将拿到的32位int类型的```key.hashCode```的高16位和低16位进行异或操作得到的。这个hash方法也叫扰动函数，这么设计的主要原因就是要使拿到的hash值尽可能的分散，尽可能的降低hash碰撞。
 ```java
@@ -256,10 +257,13 @@ jdk1.8对比jdk1.7，HashMap所做的优化：
 - jdk1.7扩容后需对原数组的元素进行重新hash定位在新数组中的位置，而jdk1.8则直接判断是原索引值还是原索引值+旧数组容量值。
 
 jdk1.8的HashMap仍是非线程安全的，在多线程环境下仍有数据覆盖、死循环等问题。
-jdk1.8的HashMap虽使用尾插法解决了链表出现环的死循环问题，但死循环问题依然存在，只不过该问题是出现在红黑树上，测试时发现多线程环境下有3个地方会出现死循环（测试覆盖不全，可能还有其他情况会导致死循环）：一是调用putTreeVal方法把节点插入红黑树时，调用root方法导致死循环；二是扩容时调用TreeNode的split->treeify导致死循环；三是扩容时调用TreeNode的split->treeify->balanceInsertion导致死循环。
-出现死循环的原因：多线程插入树节点导致树节点之间相互引用，遍历时出现死循环。
-![treeify](https://img-blog.csdnimg.cn/20200914152750184.jpg =100x)   ![balanceInsertion](https://img-blog.csdnimg.cn/20200914152750180.jpg =100x) ![root](https://img-blog.csdnimg.cn/20200914152750142.jpg =100x)
+jdk1.8的HashMap虽使用尾插法解决了链表出现环的死循环问题，但死循环问题依然存在，只不过该问题是出现在红黑树上，测试时发现多线程环境下有3个地方会出现死循环（测试覆盖不全，可能还有其他情况会导致死循环），这三种死循环出现的原因都是：多线程插入树节点导致树节点之间相互引用，遍历时出现死循环。
 
->参考： [一个HashMap跟面试官扯了半个小时](https://mp.weixin.qq.com/s?__biz=MzI3ODA0ODkwNA==&mid=2247483674&idx=1&sn=fe1a7f6652e44a60444424207b87cc93&scene=21#wechat_redirect)
->&#8195;&#8195;&#8195;[HashMap常见问题](https://blog.csdn.net/z1c5809145294zv/article/details/105726296?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param)
->&#8195;&#8195;&#8195;[HashMap链表转红黑树的阈值是8？](https://blog.csdn.net/wo1901446409/article/details/97388971)
+- 一是调用putTreeVal方法把节点插入红黑树时，调用root方法导致死循环；
+  ![treeify](https://img-blog.csdnimg.cn/20200914152750184.jpg)
+
+- 二是扩容时调用TreeNode的split->treeify导致死循环；![balanceInsertion](https://img-blog.csdnimg.cn/20200914152750180.jpg )
+
+- 三是扩容时调用TreeNode的split->treeify->balanceInsertion导致死循环。![root](https://img-blog.csdnimg.cn/20200914152750142.jpg)
+
+>参考： [一个HashMap跟面试官扯了半个小时](https://mp.weixin.qq.com/s?__biz=MzI3ODA0ODkwNA==&mid=2247483674&idx=1&sn=fe1a7f6652e44a60444424207b87cc93&scene=21#wechat_redirect)、[HashMap常见问题](https://blog.csdn.net/z1c5809145294zv/article/details/105726296?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param)、[HashMap链表转红黑树的阈值是8？](https://blog.csdn.net/wo1901446409/article/details/97388971)
