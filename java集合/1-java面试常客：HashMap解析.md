@@ -1,5 +1,7 @@
 ### 1. HashMap内部数据结构
 jdk1.8的HashMap内部使用的数据结构是数组+链表/红黑树：
+
+
 ![HashMap数据结构](https://img-blog.csdnimg.cn/20200912144948473.png)
 
 TREEIFY_THRESHOLD表示链表转红黑树的阈值，当链表的长度超过该值时，就将链表转换为红黑树。
