@@ -12,8 +12,8 @@
   - :white_circle: 单例模式
   - :small_orange_diamond: [泛型--深挖那些被忽略的知识点](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/6-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B3%9B%E5%9E%8B.md)
 - java集合
-  - :white_circle: HashMap
-  - :white_circle: ConcurrentHashMap
+  - :small_orange_diamond: [java面试的常客-HashMap深入解析](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E9%9B%86%E5%90%88/1-java%E9%9D%A2%E8%AF%95%E5%B8%B8%E5%AE%A2%EF%BC%9AHashMap%E8%A7%A3%E6%9E%90.md）
+  - :small_orange_diamond: [逃不过的ConcurrentHashMap](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E9%9B%86%E5%90%88/2-%E5%95%83%E4%B8%8BConcurrentHashMap%E8%BF%99%E5%9D%97%E7%A1%AC%E9%AA%A8%E5%A4%B4.md)
   - :white_circle: ArrayList
   - :white_circle: CopyOnWriteArrayList
   - :white_circle: java集合的ConcurrentModificationException
