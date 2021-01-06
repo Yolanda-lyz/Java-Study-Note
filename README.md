@@ -9,7 +9,7 @@
   - :small_orange_diamond: [关键字：修饰符、static、final](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81static%E3%80%81final.md)
   - :small_orange_diamond: [你知道枚举是如何实现的吗？](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/5-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%9E%9A%E4%B8%BE.md)
   - :small_orange_diamond: [反射的使用及实现原理](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/7-%E5%8F%8D%E5%B0%84.md)
-  - :white_circle: 单例模式
+  - :small_orange_diamond: [单例模式的写法及线程安全问题分析](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/8-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
   - :small_orange_diamond: [泛型--深挖那些被忽略的知识点](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/6-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B3%9B%E5%9E%8B.md)
 - java集合
   - :small_orange_diamond: [java面试的常客-HashMap深入解析](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E9%9B%86%E5%90%88/1-java%E9%9D%A2%E8%AF%95%E5%B8%B8%E5%AE%A2%EF%BC%9AHashMap%E8%A7%A3%E6%9E%90.md)
