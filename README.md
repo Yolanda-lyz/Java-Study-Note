@@ -2,11 +2,11 @@
 秉着未雨绸缪，时刻为面试做准备的想法来写这个系列，顺便夯实一下我还不太扎实的java基础。通过参考[敖丙](https://github.com/AobingJava/JavaFamily)、[三歪](https://github.com/ZhongFuCheng3y/3y)和其他[面试问题集合](https://github.com/Moosphan/Android-Daily-Interview)等整理了一些主流知识点，后续会慢慢将各个知识点填坑。
 ## 知识点目录
 - java基础知识
-  - :small_orange_diamond: [OOP：继承、封装和多态](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E7%BB%A7%E6%89%BF%E3%80%81%E5%B0%81%E8%A3%85%E5%92%8C%E5%A4%9A%E6%80%81.md)
-  - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
-    - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md#2-%E5%8C%85%E8%A3%85%E7%B1%BB)
-  - :small_orange_diamond: [深入理解String](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/String%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90.md)
-  - :small_orange_diamond: [关键字：修饰符、static、final](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81static%E3%80%81final.md)
+  - :small_orange_diamond: [OOP：继承、封装和多态](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/1-%E7%BB%A7%E6%89%BF%E3%80%81%E5%B0%81%E8%A3%85%E5%92%8C%E5%A4%9A%E6%80%81.md)
+  - :small_orange_diamond: [java数据类型](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/2-java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+    - :small_orange_diamond: [包装类](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/2-java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md#2-%E5%8C%85%E8%A3%85%E7%B1%BB)
+  - :small_orange_diamond: [深入理解String](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/3-String%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90.md)
+  - :small_orange_diamond: [关键字：修饰符、static、final](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/4-%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81static%E3%80%81final.md)
   - :small_orange_diamond: [你知道枚举是如何实现的吗？](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/5-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%9E%9A%E4%B8%BE.md)
   - :small_orange_diamond: [反射的使用及实现原理](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/7-%E5%8F%8D%E5%B0%84.md)
   - :small_orange_diamond: [单例模式的写法及线程安全问题分析](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%9F%BA%E7%A1%80/8-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
