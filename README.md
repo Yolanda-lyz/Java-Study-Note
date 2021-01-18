@@ -28,7 +28,7 @@
   - :white_circle: 并发工具类：CountDownLatch、CyclicBarrier和Semaphore
   - :white_circle: 线程池
   - :white_circle: 原子操作类
-  - :white_circle: ThreadLocal
+  - :small_orange_diamond: [ThreadLocal的实现原理及基本使用](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/ThreadLocal%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.md)
 - JVM核心知识点
   - :white_circle: java的四种引用及其区别
   - :white_circle: 垃圾回收机制
