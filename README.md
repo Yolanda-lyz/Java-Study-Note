@@ -16,11 +16,11 @@
   - :small_orange_diamond: [逃不过的ConcurrentHashMap](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E9%9B%86%E5%90%88/2-%E5%95%83%E4%B8%8BConcurrentHashMap%E8%BF%99%E5%9D%97%E7%A1%AC%E9%AA%A8%E5%A4%B4.md)
   - :white_circle: ArrayList
   - :white_circle: CopyOnWriteArrayList
-  - :white_circle: java集合的ConcurrentModificationException
+  - :small_orange_diamond: [ConcurrentModificationException的产生原因](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E9%9B%86%E5%90%88/3-ConcurrentModificationException%E5%BC%82%E5%B8%B8%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0.md)
 - 并发编程
   - :white_circle: java内存模型
   - :white_circle: 双重检查锁定
-  - :white_circle: java的各种锁
+  - :small_orange_diamond: [java的各种锁，你知道几个？](https://github.com/Yolanda-lyz/Java-Study-Note/blob/main/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/java%E7%9A%84%E5%90%84%E7%A7%8D%E9%94%81.md)
   - :white_circle: volatile
   - :white_circle: synchronized
   - :white_circle: 阻塞队列
