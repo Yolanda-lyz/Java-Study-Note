@@ -160,9 +160,11 @@ public final boolean hasQueuedPredecessors() {
 #### 可重入锁为什么在嵌套调用时可获得锁？
 
 以synchronized为例
+
 synchronized在执行monitorenter指令获取锁的过程中，会根据锁对象头、LockRecord等信息判断是否是当前线程持有锁，若是，则会通过添加空的Lock Record或计数标记等记录锁的重入次数。
 
 非可重入锁在重复调用同步资源时会出现死锁
+
 非可重入锁：以前可能有个NonReentrantLock类，存在锁嵌套使用的可能也可理解为非可重入锁。
 
 ### 6. 独享锁&共享锁
