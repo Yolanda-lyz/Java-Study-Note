@@ -128,7 +128,7 @@ java面向对象的思想，在jvm中需大量存储对象，存储时为了实�
 
 在运行期间，Mark Word里存储的数据会随着锁标志位的变化而变化，Mark Word可能变化为存储以下四种数据：
 
-【待后续补图】
+![Mask Word存储的各种数据](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f60eb8068b44f63a4a6da5d52b49fb3~tplv-k3u1fbpfcp-zoom-1.image)
 
 这四种数据分别对应锁的四种状态，级别从低到高：无锁状态->偏向锁状态->轻量级锁状态->重量级锁状态，这几个状态会随着竞争情况逐渐升级。
 
