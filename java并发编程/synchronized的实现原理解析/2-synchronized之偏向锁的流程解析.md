@@ -399,3 +399,53 @@ static BiasedLocking::Condition revoke_bias(oop obj, bool allow_rebias, bool is_
 - 若当前的偏向线程非存活或不在同步代码块中，则直接将锁设置为匿名偏向状态或无锁状态，从而完成偏向锁的撤销。
 - 若当前的偏向线程仍存活且仍在同步代码块中，则需将偏向线程的所有相关Lock Record的Displaced Mark Word设置为null，并将最高位的Lock Record的Displaced Mark Word设置为无锁状态，然后将锁对象头Mark Word字段指向最高位的Lock Record（因为这里是在safepoint中，所以不需要CAS指令），执行完后，原偏向线程的所有Lock Record都变成轻量级锁的状态。
 - revoke_bias执行完之后会回到前面的fast_enter方法中，再调用slow_enter方法，将置为无锁状态的锁升级为轻量级锁，否则会膨胀成重量级锁，所以4中的情况最终会膨胀成重量级锁。
+
+#### 3. 偏向锁的释放
+
+偏向锁的释放是从monitorexit指令开始，其执行逻辑也比较简单，只需找到对应的Lock Record，将其obj字段置空即可。
+
+```c++
+//bytecodeInterpreter#monitorexit
+void BytecodeInterpreter::run(interpreterState istate) {   
+      ......
+      CASE(_monitorexit): {
+        oop lockee = STACK_OBJECT(-1);
+        CHECK_NULL(lockee);
+        // derefing's lockee ought to provoke implicit null check
+        // find our monitor slot
+        BasicObjectLock* limit = istate->monitor_base();
+        BasicObjectLock* most_recent = (BasicObjectLock*) istate->stack_base();
+        //从低地址开始，遍历栈的Lock Record
+        while (most_recent != limit ) {
+          //如果Lock Record的obj字段指向锁对象
+          if ((most_recent)->obj() == lockee) {
+            BasicLock* lock = most_recent->lock();
+            markOop header = lock->displaced_header();
+            //置空obj字段
+            most_recent->set_obj(NULL);
+            //如果是偏向模式则无需再做其他处理；
+            //否则需要走轻量级锁或重量级锁的释放流程
+            if (!lockee->mark()->has_bias_pattern()) {
+              bool call_vm = UseHeavyMonitors;
+              // If it isn't recursive we either must swap old header or call the runtime
+              if (header != NULL || call_vm) {
+                if (call_vm || Atomic::cmpxchg_ptr(header, lockee->mark_addr(), lock) != lock) {
+                  // restore object for the slow case
+                  // CAS失败或者是重量级锁则会走到这里，先将obj还原，然后调用monitorexit方法
+                  most_recent->set_obj(lockee);
+                  CALL_VM(InterpreterRuntime::monitorexit(THREAD, most_recent), handle_exception);
+                }
+              }
+            }
+            //执行下一条指令
+            UPDATE_PC_AND_TOS_AND_CONTINUE(1, -1);
+          }
+          most_recent++;
+        }
+        // Need to throw illegal monitor state exception
+        CALL_VM(InterpreterRuntime::throw_illegal_monitor_state_exception(THREAD), handle_exception);
+        ShouldNotReachHere();
+      }
+      ......
+}
+```
